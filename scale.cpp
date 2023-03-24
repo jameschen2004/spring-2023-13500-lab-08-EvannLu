@@ -72,38 +72,6 @@ void writeImage(std::string filename, int image[MAX_H][MAX_W], int height, int w
 }
 
 
-void readImageX2(std::string filename, int image[MAX_H*2][MAX_W*2], int &height, int &width) {
-	char c;
-	int x;
-	ifstream instr;
-	instr.open(filename);
-
-	// read the header P2
-	instr >> c;
-	assert(c == 'P');
-	instr >> c;
-	assert(c == '2');
-
-	// skip the comments (if any)
-	while ((instr>>ws).peek() == '#') {
-		instr.ignore(4096, '\n');
-	}
-
-	instr >> width;
-	instr >> height;
-
-	assert(width <= MAX_W);
-	assert(height <= MAX_H);
-	int max;
-	instr >> max;
-	assert(max == 255);
-
-	for (int row = 0; row < height; row++)
-		for (int col = 0; col < width; col++)
-			instr >> image[row][col];
-	instr.close();
-	return;
-}
 
 void writeImageX2(std::string filename, int image[MAX_H*2][MAX_W*2], int height, int width) {
 	ofstream ostr;
@@ -133,15 +101,15 @@ void writeImageX2(std::string filename, int image[MAX_H*2][MAX_W*2], int height,
 }
 
 
+int main() {
 
-void scale(std::string fileimg) {
     int height; 
     int width; 
     int image[MAX_H][MAX_W];
     int grid[MAX_H*2][MAX_W*2];
     
 
-    readImage(fileimg, image, height, width);
+    readImage("inImage.pgm", image, height, width);
 
     for(int row=0; row<height*2; row++) {
         for (int col=0; col<width*2; col++) {
@@ -150,11 +118,7 @@ void scale(std::string fileimg) {
     }
 
     writeImageX2("outImage.pgm", grid, height*2, width*2);
-}
 
-
-int main() {
-	scale("image1.pgm");
 
 	return 0;
 }
