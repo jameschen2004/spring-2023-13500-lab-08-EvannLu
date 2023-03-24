@@ -5,6 +5,9 @@
 
 using namespace std;
 
+const int MAX_H = 512;
+const int MAX_W = 512;
+
 void readImage(std::string filename, int image[MAX_H][MAX_W], int &height, int &width) {
 	char c;
 	int x;
