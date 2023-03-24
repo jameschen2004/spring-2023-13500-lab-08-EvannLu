@@ -151,3 +151,10 @@ void scale(std::string fileimg) {
 
     writeImageX2("picE.pgm", grid, height*2, width*2);
 }
+
+
+int main() {
+	scale("image1.pgm");
+
+	return 0;
+}
