@@ -27,13 +27,5 @@ int main()
   // and save this new image to file "outImage.pgm"
   writeImage("outImage.pgm",out, h, w);
 
-  //Test Tasks
-  invert("image1.pgm");
-  invert_half("image1.pgm");
-  box("image1.pgm");
-  frame("image1.pgm");
-  scale("image1.pgm");
-  pixelate("image1.pgm");
-  
   return 0;
 }

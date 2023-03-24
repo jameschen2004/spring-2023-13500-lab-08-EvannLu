@@ -1,5 +1,12 @@
-sample: sample.o imageio.o invert.o invert-half.o box.o frame.o scale.o pixelate.o
-	g++ -o sample sample.o imageio.o invert.o invert-half.o box.o frame.o scale.o pixelate.o
+OBJECTS =  invert.o invert-half.o box.o frame.o scale.o pixelate.o
+
+main: main.o imageio.o $(OBJECTS)
+	g++ -o main main.o imageio.o $(OBJECTS)
+
+main.o: main.cpp imageio.h
+
+sample: sample.o imageio.o 
+	g++ -o sample sample.o imageio.o
 
 sample.o: sample.cpp imageio.h
 
@@ -18,4 +25,4 @@ scale.o: scale.cpp imageio.h
 pixelate.o: pixelate.cpp imageio.h
 
 clean:
-	rm -f *.o sample outImage.pgm picA.pgm picB.pgm picC.pgm picD.pgm picE.pgm picF.pgm
+	rm -f *.o main sample outImage.pgm picA.pgm picB.pgm picC.pgm picD.pgm picE.pgm picF.pgm
