@@ -12,7 +12,7 @@ void box(std::string fileimg) {
 
     for(int i=0; i<height; i++) {
         for (int j=0; j<width; j++) {
-            if((0.25 * width < j) && (j < 0.75 * width) && (0.25 * height < i) && (i < 0.75 * height);) {
+            if((0.25 * width < j) && (j < 0.75 * width) && (0.25 * height < i) && (i < 0.75 * height)) {
                 image[i][j] = 255;
             }
         }
