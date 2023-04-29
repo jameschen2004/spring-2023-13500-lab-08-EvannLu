@@ -10,12 +10,9 @@ void box(std::string fileimg) {
     
     readImage(fileimg, image, height, width);
 
-    bool isCenter = false;
-
     for(int i=0; i<height; i++) {
         for (int j=0; j<width; j++) {
-            isCenter = (0.25 * width < j) && (j < 0.75 * width) && (0.25 * height < i) && (i < 0.75 * height);
-            if(isCenter) {
+            if((0.25 * width < j) && (j < 0.75 * width) && (0.25 * height < i) && (i < 0.75 * height);) {
                 image[i][j] = 255;
             }
         }
